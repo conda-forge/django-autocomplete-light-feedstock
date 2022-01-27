@@ -1,5 +1,5 @@
 {% set name = "django-autocomplete-light" %}
-{% set version = "3.8.2" %}
+{% set version = "3.9.0" %}
 
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/django-autocomplete-light-{{ version }}.tar.gz
-  sha256: 25f0ea71b59a8f1f97a8a564e33e429570b0ea77c5eac81f7beb283073b4ba90
+  sha256: 34e8af34a83622461d38f3a3824b622168ebe243b9889c982a7c7514b4110882
 
 build:
   number: 0
