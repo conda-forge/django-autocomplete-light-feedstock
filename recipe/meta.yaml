@@ -1,6 +1,5 @@
 {% set name = "django-autocomplete-light" %}
-{% set version = "3.8.2" %}
-
+{% set version = "3.9.7" %}
 
 package:
   name: {{ name|lower }}
@@ -8,25 +7,36 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/django-autocomplete-light-{{ version }}.tar.gz
-  sha256: 25f0ea71b59a8f1f97a8a564e33e429570b0ea77c5eac81f7beb283073b4ba90
+  sha256: a34f192ac438c4df056dbfd399550799ddc631c4661960134ded924648770373
 
 build:
-  number: 0
   noarch: python
-  script: {{ PYTHON }} -m pip install . -vv
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+  number: 0
 
 requirements:
   host:
+    - python >=3.8
     - pip
-    - python >=2.7,<3|>=3.4,<4
   run:
-    - python >=2.7,<3|>=3.4,<4
+    - python >=3.8
+    - django >=3.2
     - six
 
 test:
   imports:
     - dal
-    - dal.test
+    - dal_contenttypes
+    - dal_genericm2m
+    - dal_genericm2m_queryset_sequence
+    - dal_gm2m
+    - dal_gm2m_queryset_sequence
+    - dal_legacy_static
+    - dal_queryset_sequence
+    - dal_select2
+    - dal_select2_queryset_sequence
+    - dal_select2_tagging
+    - dal_select2_taggit
   commands:
     - pip check
   requires:
@@ -35,9 +45,11 @@ test:
 about:
   home: http://django-autocomplete-light.rtfd.org
   summary: Fresh autocompletes for Django
+  dev_url: https://github.com/yourlabs/django-autocomplete-light
   license: MIT
   license_file: LICENSE
 
 extra:
   recipe-maintainers:
+    - rxm7706
     - maksdan
