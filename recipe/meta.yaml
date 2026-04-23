@@ -1,5 +1,5 @@
 {% set name = "django-autocomplete-light" %}
-{% set version = "3.12.1" %}
+{% set version = "4.0.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name | replace('-', '_') }}-{{ version }}.tar.gz
-  sha256: 50f7b83681feec6491c38e6114d7a4fe80f9e99a8cc6c8458a3e7bb137ad6b1d
+  sha256: 2d4438320eefe1248ad0543e1d1673449f571afcc5c603fb487e5ed2fe4849cf
 
 build:
   noarch: python
@@ -21,8 +21,11 @@ requirements:
     - setuptools
   run:
     - python >={{ python_min }}
-    - django >=3.2
+    - django >=5.2
     - six
+    # - django-taggit 
+    # - django-querysetsequence >=0.11
+    # - django-nested-admin >=3.0.21
 
 test:
   imports:
